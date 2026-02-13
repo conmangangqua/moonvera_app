@@ -1,0 +1,57 @@
+name: Validate JSON
+
+on:
+  pull_request:
+    paths:
+      - 'apps.json'
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Validate apps.json
+        run: |
+          # Install jq if needed
+          sudo apt-get update
+          sudo apt-get install -y jq
+          
+          # Validate JSON syntax
+          if ! jq . apps.json > /dev/null; then
+            echo "❌ Invalid JSON syntax in apps.json"
+            exit 1
+          fi
+          
+          # Validate structure
+          if ! jq '.apps | type == "array"' apps.json | grep -q true; then
+            echo "❌ apps.json must have 'apps' array"
+            exit 1
+          fi
+          
+          # Validate each app
+          jq -r '.apps[] | "\(.id) - \(.name)"' apps.json
+          
+          echo "✅ apps.json is valid"
+
+      - name: Notify Error (Optional)
+        if: failure() && env.DISCORD_WEBHOOK_URL != ''
+        run: |
+          payload=$(jq -n \
+            --arg repo "${{ github.repository }}" \
+            --arg sha "${{ github.sha }}" \
+            --arg actor "${{ github.actor }}" \
+            --arg ref "${{ github.ref_name }}" \
+            '{
+              content: ("❌ Validate JSON failed: *\($repo)*\\nCommit: \($sha)\\nAuthor: \($actor)\\nBranch: \($ref)")
+            }')
+          
+          curl -sS -X POST "${{ secrets.DISCORD_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d "$payload" | cat
