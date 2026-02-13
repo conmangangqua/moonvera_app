@@ -26,8 +26,10 @@ jobs:
       
       - name: Checkout default branch
         run: |
-          DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' || echo "main")
-          git checkout $DEFAULT_BRANCH || git checkout main || git checkout master
+          # Try to get default branch from remote, fallback to current or main
+          DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5 || echo "main")
+          echo "Default branch detected as: $DEFAULT_BRANCH"
+          git checkout $DEFAULT_BRANCH || git checkout -b $DEFAULT_BRANCH || echo "Already on branch or failed checkout"
 
       # ===================== SETUP TOOLS =====================
       - name: Setup jq and GitHub CLI
@@ -223,5 +225,14 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: update apps.json for ${TAG:-latest release}"
-          git push
+          git commit -m "chore: update apps.json for ${TAG:-latest release}" || echo "Nothing to commit"
+          
+          # Push specifically to the branch we want
+          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$CURRENT_BRANCH" = "HEAD" ]; then
+            # Still in detached HEAD? Push to main or detected default
+            DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5 || echo "main")
+            git push origin HEAD:$DEFAULT_BRANCH
+          else
+            git push origin $CURRENT_BRANCH
+          fi
