@@ -3,24 +3,13 @@
     {
       "id": "beat_maker",
       "name": "Beat Maker",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beat_maker_icon.png",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_icon.png",
       "platform": "Android",
       "description": "",
       "features": [],
       "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beat_maker_dev.apk"
-      }
-    },
-    {
-      "id": "beat_maker_pro",
-      "name": "Beat Maker Pro",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_pro_icon.png",
-      "platform": "Android",
-      "description": "",
-      "features": [],
-      "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beat_maker_pro_dev.apk",
-        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_pro_prod.apk"
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beat_maker_dev.apk",
+        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_prod.apk"
       }
     }
   ]
