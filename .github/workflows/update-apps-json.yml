@@ -225,11 +225,13 @@ jobs:
             exit 0
           fi
 
+          # Pull latest changes to avoid non-fast-forward error
+          git pull --rebase origin ${CURRENT_BRANCH:-main}
+
           git commit -m "chore: update apps.json for ${TAG:-latest release}" || echo "Nothing to commit"
           
           # Push specifically to the branch we want
-          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          if [ "$CURRENT_BRANCH" = "HEAD" ]; then
+          if [ "$CURRENT_BRANCH" = "HEAD" ] || [ -z "$CURRENT_BRANCH" ]; then
             # Still in detached HEAD? Push to main or detected default
             DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5 || echo "main")
             git push origin HEAD:$DEFAULT_BRANCH
