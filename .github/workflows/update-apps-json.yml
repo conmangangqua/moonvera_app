@@ -238,3 +238,6 @@ jobs:
           else
             git push origin $CURRENT_BRANCH
           fi
+
+          # Trigger deploy workflow manually since GITHUB_TOKEN doesn't trigger other workflows
+          gh workflow run deploy-pages.yml --repo ${{ github.repository }}
