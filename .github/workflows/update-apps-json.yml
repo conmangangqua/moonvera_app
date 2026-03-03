@@ -126,14 +126,23 @@ jobs:
           app_ids = set()
           for asset in all_assets:
               name = asset.get('name', '')
+              if not name: continue
+              
+              base_id = ""
               if name.endswith('_dev.apk'):
-                  app_ids.add(name.replace('_dev.apk', ''))
+                  base_id = name.replace('_dev.apk', '')
               elif name.endswith('_prod.apk'):
-                  app_ids.add(name.replace('_prod.apk', ''))
+                  base_id = name.replace('_prod.apk', '')
               elif name.endswith('.aab'):
-                  app_ids.add(name.replace('.aab', ''))
+                  base_id = name.replace('.aab', '')
               elif name.endswith('_icon.png'):
-                  app_ids.add(name.replace('_icon.png', ''))
+                  base_id = name.replace('_icon.png', '')
+              
+              if base_id:
+                  # Clean up double _dev suffixes or similar if they exist
+                  if base_id.endswith('_dev'):
+                      base_id = base_id[:-4]
+                  app_ids.add(base_id)
           
           app_ids = sorted(list(app_ids))
           print(f"Found app IDs: {', '.join(app_ids)}")
@@ -242,4 +251,4 @@ jobs:
           git push origin HEAD:$TARGET_BRANCH
 
           # Trigger deploy workflow manually since GITHUB_TOKEN doesn't trigger other workflows
-          gh workflow run deploy-pages.yml --repo ${{ github.repository }}
+          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run deploy-pages.yml --repo ${{ github.repository }}
