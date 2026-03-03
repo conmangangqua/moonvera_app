@@ -11,6 +11,29 @@
         "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beat_maker_dev.apk",
         "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_prod.apk"
       }
+    },
+    {
+      "id": "moo_insect_filter",
+      "name": "Moo Insect Filter",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev.apk",
+        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_prod.apk"
+      }
+    },
+    {
+      "id": "moo_insect_filter_dev",
+      "name": "Moo Insect Filter Dev",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev_dev.apk"
+      }
     }
   ]
 }
