@@ -31,9 +31,7 @@
       "platform": "Android",
       "description": "",
       "features": [],
-      "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev_dev.apk"
-      }
+      "downloads": {}
     }
   ]
 }
