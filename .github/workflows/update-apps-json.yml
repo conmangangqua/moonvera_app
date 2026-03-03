@@ -225,19 +225,21 @@ jobs:
             exit 0
           fi
 
-          # Pull latest changes to avoid non-fast-forward error
-          git pull --rebase origin ${CURRENT_BRANCH:-main}
-
+          # 1. Commit first to make the tree clean
           git commit -m "chore: update apps.json for ${TAG:-latest release}" || echo "Nothing to commit"
-          
-          # Push specifically to the branch we want
-          if [ "$CURRENT_BRANCH" = "HEAD" ] || [ -z "$CURRENT_BRANCH" ]; then
-            # Still in detached HEAD? Push to main or detected default
-            DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5 || echo "main")
-            git push origin HEAD:$DEFAULT_BRANCH
-          else
-            git push origin $CURRENT_BRANCH
+
+          # 2. Detect branch for pull/push
+          TARGET_BRANCH=${CURRENT_BRANCH:-main}
+          if [ "$TARGET_BRANCH" = "HEAD" ] || [ -z "$TARGET_BRANCH" ]; then
+            TARGET_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5 || echo "main")
           fi
+          echo "Target branch for sync: $TARGET_BRANCH"
+
+          # 3. Pull with rebase and autostash to avoid conflicts
+          git pull --rebase --autostash origin $TARGET_BRANCH
+
+          # 4. Push to the target branch
+          git push origin HEAD:$TARGET_BRANCH
 
           # Trigger deploy workflow manually since GITHUB_TOKEN doesn't trigger other workflows
           gh workflow run deploy-pages.yml --repo ${{ github.repository }}
