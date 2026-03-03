@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-apps-json:
@@ -251,4 +252,4 @@ jobs:
           git push origin HEAD:$TARGET_BRANCH
 
           # Trigger deploy workflow manually since GITHUB_TOKEN doesn't trigger other workflows
-          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run deploy-pages.yml --repo ${{ github.repository }}
+          GH_TOKEN=${{ secrets.PAT_TOKEN }} gh workflow run deploy-pages.yml --repo ${{ github.repository }}
