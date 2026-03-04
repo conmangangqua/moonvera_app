@@ -20,7 +20,8 @@
       "description": "",
       "features": [],
       "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/insect_filter_dev.apk"
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/insect_filter_dev.apk",
+        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/insect_filter_prod.apk"
       }
     },
     {
