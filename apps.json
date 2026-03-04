@@ -15,12 +15,13 @@
     {
       "id": "beatmaker",
       "name": "Beatmaker",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beatmaker_icon.png",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beatmaker_icon.png",
       "platform": "Android",
       "description": "",
       "features": [],
       "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beatmaker_dev.apk"
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beatmaker_dev.apk",
+        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beatmaker_prod.apk"
       }
     },
     {
