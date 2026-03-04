@@ -13,6 +13,17 @@
       }
     },
     {
+      "id": "beatmaker",
+      "name": "Beatmaker",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beatmaker_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beatmaker_dev.apk"
+      }
+    },
+    {
       "id": "moo_insect_filter",
       "name": "Moo Insect Filter",
       "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_icon.png",
@@ -22,18 +33,6 @@
       "downloads": {
         "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev.apk",
         "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_prod.apk"
-      }
-    },
-    {
-      "id": "vidkeeper_video_downloader",
-      "name": "Vidkeeper Video Downloader",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/vidkeeper_video_downloader_icon.png",
-      "platform": "Android",
-      "description": "",
-      "features": [],
-      "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/vidkeeper_video_downloader_dev.apk",
-        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/vidkeeper_video_downloader_prod.apk"
       }
     }
   ]
