@@ -13,15 +13,6 @@
       }
     },
     {
-      "id": "beat_maker_prod",
-      "name": "Beat Maker Prod",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_prod_icon.png",
-      "platform": "Android",
-      "description": "",
-      "features": [],
-      "downloads": {}
-    },
-    {
       "id": "moo_insect_filter",
       "name": "Moo Insect Filter",
       "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_icon.png",
@@ -32,27 +23,6 @@
         "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev.apk",
         "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_prod.apk"
       }
-    },
-    {
-      "id": "snapvid",
-      "name": "Snapvid",
-      "icon": "",
-      "platform": "Android",
-      "description": "",
-      "features": [],
-      "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/snapvid_dev.apk",
-        "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/snapvid_prod.apk"
-      }
-    },
-    {
-      "id": "snapvid_prod",
-      "name": "Snapvid Prod",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/snapvid_prod_icon.png",
-      "platform": "Android",
-      "description": "",
-      "features": [],
-      "downloads": {}
     }
   ]
 }
