@@ -3,7 +3,7 @@
     {
       "id": "beat_maker",
       "name": "Beat Maker",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beat_maker_icon.png",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beat_maker_icon.png",
       "platform": "Android",
       "description": "",
       "features": [],
@@ -20,7 +20,6 @@
       "description": "",
       "features": [],
       "downloads": {
-        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/beatmaker_dev.apk",
         "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/beatmaker_prod.apk"
       }
     },
