@@ -23,6 +23,17 @@
         "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_dev.apk",
         "prod": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_prod.apk"
       }
+    },
+    {
+      "id": "vidkeeper_video_downloader",
+      "name": "Vidkeeper Video Downloader",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/vidkeeper_video_downloader_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/vidkeeper_video_downloader_dev.apk"
+      }
     }
   ]
 }
