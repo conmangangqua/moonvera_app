@@ -26,7 +26,7 @@
     {
       "id": "moo_insect_filter",
       "name": "Moo Insect Filter",
-      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/dev/moo_insect_filter_icon.png",
+      "icon": "https://github.com/conmangangqua/moonvera_app/releases/download/prod/moo_insect_filter_icon.png",
       "platform": "Android",
       "description": "",
       "features": [],
