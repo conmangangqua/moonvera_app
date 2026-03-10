@@ -12,7 +12,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 jobs:
   update-apps-json:
@@ -245,11 +244,11 @@ jobs:
           fi
           echo "Target branch for sync: $TARGET_BRANCH"
 
-          # 3. Pull with rebase and autostash to avoid conflicts
-          git pull --rebase --autostash origin $TARGET_BRANCH
+          # 3. Pull with rebase and autostash to avoid conflicts, if conflicts occur, assume ours (since we generated from scratch)
+          git pull --rebase --autostash origin $TARGET_BRANCH || (git rebase --skip && git checkout HEAD -- apps.json && git commit --amend --no-edit)
 
           # 4. Push to the target branch
-          git push origin HEAD:$TARGET_BRANCH
+          git push origin HEAD:$TARGET_BRANCH --force-with-lease || git push origin HEAD:$TARGET_BRANCH
 
-          # Trigger deploy workflow manually since GITHUB_TOKEN doesn't trigger other workflows
+          # Trigger deploy workflow manually using PAT_TOKEN to propagate workflow runs
           GH_TOKEN=${{ secrets.PAT_TOKEN }} gh workflow run deploy-pages.yml --repo ${{ github.repository }}
